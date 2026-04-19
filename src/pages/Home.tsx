@@ -19,7 +19,7 @@ export const Home = () => {
         <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl">
           <img src={logoVisual} alt="CS Logo" className="w-24 h-24 rounded-full shadow-2xl mb-8 border border-cs-goldDark/30 object-cover" />
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bonanova font-bold text-cs-goldDark mb-6 tracking-widest uppercase">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-cs-goldDark mb-6 tracking-widest uppercase">
             Cândido Silva<br />Advocacia
           </h1>
 

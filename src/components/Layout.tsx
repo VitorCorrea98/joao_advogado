@@ -28,7 +28,7 @@ export const Layout = () => {
             </span>
 
             {/* DESKTOP: Esconde no Mobile (hidden) / Mostra no Desktop (sm:block) */}
-            <span className="sm:block font-mono">
+            <span className="hidden sm:block font-serif font-bold">
               Cândido Silva
             </span>
           </Link>
@@ -95,13 +95,13 @@ export const Layout = () => {
                 <span className="text-cs-goldDark text-xl">📱</span>
                 <a href="https://wa.me/5521999881812" className="hover:text-cs-goldDark transition-colors">(21) 99988-1812</a>
               </li>
-              <li className="flex items-center gap-3">
+              {/* <li className="flex items-center gap-3">
                 <span className="text-cs-goldDark text-xl">📸</span>
                 <a href="https://instagram.com/candidosilva.adv" target="_blank" rel="noreferrer" className="hover:text-cs-goldDark transition-colors">@candidosilva.adv</a>
-              </li>
+              </li> */}
               <li className="flex items-center gap-3">
                 <span className="text-cs-goldDark text-xl">✉️</span>
-                <a href="mailto:contato@candidosilvaadvocacia.com.br" className="hover:text-cs-goldDark transition-colors">contato@candidosilvaadvocacia.com.br</a>
+                <a href="mailto:advocaciacandidosilva@gmail.com" className="hover:text-cs-goldDark transition-colors">advocaciacandidosilva@gmail.com</a>
               </li>
               <li className="flex items-start gap-3 mt-4 pt-4 border-t border-cs-goldDark/20">
                 <span className="text-cs-goldDark text-xl mt-1">📍</span>
