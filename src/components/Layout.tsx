@@ -35,7 +35,7 @@ export const Layout = () => {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex gap-8 font-medium text-sm tracking-wide">
-            <Link to="/trabalhista" className="hover:text-cs-goldDark transition-colors duration-300">TRABALHISTA & PREVIDENCIÁRIO</Link>
+            <Link to="/trabalhista" className="hover:text-cs-goldDark transition-colors duration-300">DIREITO DO TRABALHO & PREVIDENCIÁRIO</Link>
             {/* <Link to="/canabico" className="hover:text-cs-goldDark transition-colors duration-300">DIREITO CANÁBICO</Link>
             <Link to="/autoral" className="hover:text-cs-goldDark transition-colors duration-300">PROPRIEDADE INTELECTUAL</Link> */}
           </nav>
