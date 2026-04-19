@@ -1,57 +1,23 @@
-import { useEffect, useState } from "react";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { CannabisLaw } from './pages/CannabisLaw';
+import { Home } from './pages/Home';
+import { IntellectualProperty } from './pages/IntellectualProperty';
+import { LaborLaw } from './pages/LaborLaw';
 
-function App() {
-	const [activeSection, setActiveSection] = useState("home");
-
-	useEffect(() => {
-		const sections = ["home", "about", "services", "contact"];
-
-		const observer = new IntersectionObserver(
-			(entries) => {
-				for (const entry of entries) {
-					if (entry.isIntersecting) {
-						setActiveSection(entry.target.id);
-					}
-				}
-			},
-			{ threshold: 0.5 },
-		);
-
-		for (const section of sections) {
-			const element = document.getElementById(section);
-			if (element) {
-				observer.observe(element);
-			}
-		}
-
-		return () => {
-			for (const section of sections) {
-				const element = document.getElementById(section);
-				if (element) {
-					observer.unobserve(element);
-				}
-			}
-		};
-	}, []);
-
+export const App = () => {
 	return (
-		<div className="min-h-screen">
-			<Header activeSection={activeSection} />
-			<main>
-				<Hero />
-				<About />
-				<Services />
-				<Contact />
-			</main>
-			<Footer />
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Layout />}>
+					<Route index element={<Home />} />
+					<Route path="trabalhista" element={<LaborLaw />} />
+					<Route path="canabico" element={<CannabisLaw />} />
+					<Route path="autoral" element={<IntellectualProperty />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	);
-}
+};
 
 export default App;
