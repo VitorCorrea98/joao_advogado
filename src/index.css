@@ -5,17 +5,18 @@
 
 /* Configuração nativa do Tailwind v4 */
 @theme {
-  /* Cores da Paleta CS */
-  --color-cs-darkGreen: #1C3E2D;
-  --color-cs-goldDark: #B48E66;
-  --color-cs-cream: #FDFBF3;
+  /* Nova Paleta Premium - Escritório Boutique */
+  --color-cs-darkGreen: #0A1C14; /* Verde super profundo, quase preto */
+  --color-cs-goldDark: #C5A059;  /* Dourado fosco elegante */
+  --color-cs-iceWhite: #F7F9F8;  /* Branco gelo / Off-white */
+  --color-cs-graphite: #2D3130;  /* Cinza grafite para textos longos */
 
-  /* Fontes Premium */
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-helvetica: "Helvetica Neue", sans-serif;
 
-  /* Sombras customizadas para profundidade elegante */
-  --shadow-premium: 0 10px 30px -10px rgba(28, 62, 45, 0.15);
+  --shadow-premium: 0 10px 40px -10px rgba(10, 28, 20, 0.08);
   --shadow-premium-hover: 0 20px 40px -10px rgba(28, 62, 45, 0.25);
 }
 
@@ -26,14 +27,12 @@
   }
   
   body {
-    background-color: var(--color-cs-cream);
-    color: #1f2937; /* Base text color (gray-800) */
+    background-color: var(--color-cs-iceWhite);
+    color: var(--color-cs-graphite);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Aplicando a fonte serifada aos títulos globalmente */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-serif);
     color: var(--color-cs-darkGreen);

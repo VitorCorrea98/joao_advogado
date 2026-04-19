@@ -21,7 +21,7 @@ export const LaborLaw = () => {
           <h1 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight text-cs-goldDark">
             A defesa dos seus direitos começa aqui.
           </h1>
-          <p className="text-xl md:text-2xl mb-12 font-light text-cs-cream/90 text-balance">
+          <p className="text-xl md:text-2xl mb-12 font-light text-cs-iceWhite text-balance">
             Protegemos trabalhadores e orientamos empresas com excelência, discrição e estratégia impecável.
           </p>
           <div className="flex justify-center">

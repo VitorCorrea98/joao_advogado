@@ -1,85 +1,154 @@
-import heroVisual from '../assets/images/LogoVerdeMelhor.png';
-import { PracticeAreaCard } from '../components/PracticeAreaCard';
+import { Link } from 'react-router-dom';
+import logoVisual from '../assets/images/LogoVerde.jpeg'; // Ou a versão sem fundo
 import { WhatsAppButton } from '../components/WhatsappButton';
 
 const PHONE_NUMBER = "5521999881812";
 
 export const Home = () => {
-  const differentiators = [
-    "Atendimento rápido",
-    "Estratégia personalizada",
-    "Atuação preventiva e contenciosa",
-    "Atendimento em todo o Brasil",
-    "Escritório digital + presencial",
-    "Foco em alta performance jurídica"
-  ];
-
   return (
-    <div className="flex flex-col gap-20 pb-20 bg-cs-cream">
-      {/* Hero Section */}
-      <section className="relative pt-12 md:pt-20 px-6 text-center">
-        <div className="container mx-auto max-w-5xl">
-          <div className="mb-10 shadow-premium rounded-2xl border border-cs-goldDark/20 overflow-hidden bg-white mx-auto transform transition-transform hover:scale-[1.01] duration-500">
-            <img
-              src={heroVisual}
-              alt="Cândido Silva Advocacia - Assessoria Jurídica de Excelência"
-              className="w-full h-auto object-cover"
-              loading="eager"
-            />
-          </div>
+    <div className="flex flex-col bg-cs-iceWhite">
+      {/* 1. HERO SECTION (Impacto Visual) */}
+      <section className="relative min-h-[90vh] flex items-center justify-center bg-cs-darkGreen overflow-hidden">
+        {/* Placeholder para a Imagem de Fundo (Mármore/Escritório Moderno) */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-luminosity"
+          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2000&auto=format&fit=crop")' }}
+        />
 
-          <div className="flex justify-center -mt-6 relative z-10">
-            <WhatsAppButton
-              text="Fale com um advogado agora"
-              phoneNumber={PHONE_NUMBER}
-            />
-          </div>
-        </div>
-      </section>
+        <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl">
+          <img src={logoVisual} alt="CS Logo" className="w-24 h-24 rounded-full shadow-2xl mb-8 border border-cs-goldDark/30 object-cover" />
 
-      {/* Sobre o Escritório */}
-      <section className="container mx-auto px-6 text-center max-w-4xl">
-        <h2 className="text-4xl md:text-5xl font-bold mb-8">
-          Sobre o Escritório
-        </h2>
-        <div className="w-20 h-1 bg-cs-goldDark mx-auto mb-8 rounded-full" />
-        <p className="text-xl md:text-2xl leading-relaxed mb-6 font-light text-cs-darkGreen/90 text-balance">
-          Escritório com atuação estratégica, atendimento personalizado e foco em soluções jurídicas eficientes para pessoas físicas e empresas.
-        </p>
-        <p className="text-lg md:text-xl leading-relaxed font-light text-cs-darkGreen/80">
-          Atuação premium com foco em resultados, segurança jurídica e atendimento humanizado.
-        </p>
-      </section>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans  font-bold text-cs-goldDark mb-6 tracking-widest uppercase">
+            Cândido Silva<br />Advocacia
+          </h1>
 
-      {/* Áreas de Atuação */}
-      <section className="container mx-auto px-6">
-        <div className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-sm border border-cs-goldDark/10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Nossas Especialidades
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <PracticeAreaCard title="Trabalhista e Previdenciário" path="/trabalhista" isMain={true} />
-            <PracticeAreaCard title="Direito Canábico" path="/canabico" />
-            <PracticeAreaCard title="Direito Autoral e PI" path="/autoral" />
-            <PracticeAreaCard title="Consultoria Empresarial" path="/trabalhista" />
-          </div>
-        </div>
-      </section>
+          <p className="text-lg md:text-2xl font-light text-cs-iceWhite/90 tracking-wide mb-12 max-w-3xl">
+            "Atuação estratégica, atendimento personalizado e excelência jurídica."
+          </p>
 
-      {/* Diferenciais */}
-      <section className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12">
-          Nossos Diferenciais
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {differentiators.map((item, index) => (
-            <div
-              key={index}
-              className="p-6 bg-white shadow-premium hover:shadow-premium-hover border border-cs-goldDark/30 rounded-xl font-medium text-cs-darkGreen transition-all duration-300 flex items-center justify-center text-lg"
+          <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+            <WhatsAppButton text="Fale no WhatsApp" phoneNumber={PHONE_NUMBER} />
+            <button
+              type="button"
+              className="px-8 py-4 border-2 border-cs-goldDark text-cs-goldDark hover:bg-cs-goldDark hover:text-cs-darkGreen font-bold rounded-xl transition-all duration-500 uppercase tracking-wider text-sm"
+              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              {item}
+              Agendar Consulta
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. ÁREAS DE ATUAÇÃO (3 Cards Premium) */}
+      <section className="py-24 px-6 container mx-auto max-w-7xl">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Especialidades</h2>
+          <div className="w-12 h-1 bg-cs-goldDark mx-auto" />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-1 p-14 gap-8">
+          {/* Card Trabalhista */}
+          <Link to="/trabalhista" className="group flex flex-col bg-white rounded-sm shadow-premium hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-cs-goldDark/30 overflow-hidden">
+            <div className="h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?q=80&w=800&auto=format&fit=crop" alt="Trabalhista" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
-          ))}
+            <div className="p-8 flex flex-col flex-grow">
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-cs-goldDark transition-colors">Trabalho & Previdência</h3>
+              <p className="text-cs-graphite font-light leading-relaxed mb-6">
+                Atuação em reclamações trabalhistas, verbas rescisórias, reversão de justa causa, benefícios previdenciários e planejamento jurídico preventivo.
+              </p>
+              <span className="mt-auto text-sm uppercase tracking-widest text-cs-goldDark font-semibold">Descobrir Mais →</span>
+            </div>
+          </Link>
+
+          {/* Card Canábico */}
+          {/* <Link to="/canabico" className="group flex flex-col bg-white rounded-sm shadow-premium hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-cs-goldDark/30 overflow-hidden">
+            <div className="h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1603908846950-86ec1840e53a?q=80&w=800&auto=format&fit=crop" alt="Direito Canábico" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 mix-blend-multiply grayscale-[30%]" />
+            </div>
+            <div className="p-8 flex flex-col flex-grow">
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-cs-goldDark transition-colors">Direito Canábico</h3>
+              <p className="text-cs-graphite font-light leading-relaxed mb-6">
+                Habeas corpus para cultivo medicinal, acesso judicial ao tratamento, importação autorizada e defesa do direito à saúde.
+              </p>
+              <span className="mt-auto text-sm uppercase tracking-widest text-cs-goldDark font-semibold">Descobrir Mais →</span>
+            </div>
+          </Link>
+
+          <Link to="/autoral" className="group flex flex-col bg-white rounded-sm shadow-premium hover:shadow-2xl transition-all duration-500 border border-transparent hover:border-cs-goldDark/30 overflow-hidden">
+            <div className="h-64 overflow-hidden bg-cs-darkGreen">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=800&auto=format&fit=crop" alt="Propriedade Intelectual" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80" />
+            </div>
+            <div className="p-8 flex flex-col flex-grow">
+              <h3 className="text-2xl font-bold mb-4 group-hover:text-cs-goldDark transition-colors">Propriedade Intelectual</h3>
+              <p className="text-cs-graphite font-light leading-relaxed mb-6">
+                Registro de marca, direito autoral, proteção patrimonial intelectual e segurança jurídica para criadores e empresas.
+              </p>
+              <span className="mt-auto text-sm uppercase tracking-widest text-cs-goldDark font-semibold">Descobrir Mais →</span>
+            </div>
+          </Link> */}
+        </div>
+      </section>
+
+      {/* 3. SOBRE O ESCRITÓRIO (Gera Autoridade) */}
+      <section className="py-24 bg-white border-y border-cs-goldDark/10">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="relative aspect-[3/4] max-w-md mx-auto lg:mx-0 w-full rounded-sm overflow-hidden shadow-2xl">
+              {/* Espaço para a foto profissional do advogado */}
+              <div className="absolute inset-0 bg-cs-darkGreen/5 flex items-center justify-center border border-cs-goldDark/20">
+                <span className="text-cs-graphite/50 font-serif">[Inserir Foto Profissional do Advogado]</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">Nossa Essência</h2>
+              <p className="text-xl leading-relaxed font-light text-cs-graphite mb-6 text-balance">
+                Fundado com a proposta de oferecer uma advocacia moderna, estratégica e humanizada, o escritório atua com excelência técnica e atendimento próximo ao cliente.
+              </p>
+              <p className="text-xl leading-relaxed font-light text-cs-graphite text-balance">
+                Buscamos incessantemente soluções que tragam eficácia, proteção e segurança jurídica máxima para pessoas e negócios.
+              </p>
+              <div className="mt-12">
+                <img src={logoVisual} alt="Assinatura" className="h-16 opacity-80 grayscale mix-blend-multiply" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. DIFERENCIAIS (Luxo Silencioso) */}
+      <section className="py-24 bg-cs-darkGreen text-cs-iceWhite px-6">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl md:text-5xl font-bold mb-16 text-center text-cs-goldDark">Diferenciais</h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-12 gap-x-8">
+            {[
+              { title: "Atendimento Personalizado", icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+              { title: "Atuação Estratégica", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+              { title: "Transparência Processual", icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" },
+              { title: "Escritório Digital e Presencial", icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" },
+              { title: "Foco Absoluto em Resultados", icon: "M13 10V3L4 14h7v7l9-11h-7z" }, { title: "Atuação Preventiva", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+            ].map((item, idx) => (
+              <div key={idx} className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 rounded-full border border-cs-goldDark/50 flex items-center justify-center mb-6 group-hover:bg-cs-goldDark transition-colors duration-500">
+                  <svg className="w-8 h-8 text-cs-goldDark group-hover:text-cs-darkGreen transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <title>{item.title}</title>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={item.icon} />
+                  </svg>
+                </div>
+                <h4 className="text-xl font-serif text-cs-iceWhite">{item.title}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. DEPOIMENTOS (Placeholder Elegante) */}
+      <section className="py-24 bg-cs-iceWhite text-center px-6">
+        <h2 className="text-3xl font-bold text-cs-darkGreen mb-12">O que dizem nossos clientes</h2>
+        <div className="max-w-3xl mx-auto italic font-serif text-xl md:text-2xl text-cs-graphite/80 text-balance border-l-4 border-cs-goldDark pl-8 py-4">
+          "A estrutura está pronta para receber os depoimentos assim que as primeiras vitórias e avaliações chegarem no Google Meu Negócio."
         </div>
       </section>
     </div>
