@@ -105,22 +105,35 @@ export const Layout = () => {
               </li>
               <li className="flex items-start gap-3 mt-4 pt-4 border-t border-cs-goldDark/20">
                 <span className="text-cs-goldDark text-xl mt-1">📍</span>
-                <span className="leading-relaxed">Avenida Paulista, 1000 - Bela Vista<br />São Paulo, SP - 01310-100</span>
+                <span className="leading-relaxed">Tv. do Paço, 23 sala 805 - Centro, Rio de Janeiro - RJ, 20010-170</span>
               </li>
             </ul>
           </div>
 
           {/* Coluna 3: Mapa Local */}
-          <div className="w-full h-64 bg-cs-graphite/50 rounded-sm border border-cs-goldDark/20 flex items-center justify-center overflow-hidden grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-            {/* Aqui você pode colar o iframe do Google Maps do escritório. Por enquanto, um placeholder elegante: */}
-            <span className="font-serif text-cs-iceWhite/50">Google Maps (Integrar iframe)</span>
+          <div className="w-full h-72 bg-cs-graphite/50 rounded-sm border border-cs-goldDark/20 overflow-hidden relative group">
+            {/* O iframe abaixo usa a API gratuita de incorporação do Maps.
+              As classes CSS garantem que ele fique em preto e branco (grayscale) 
+              e volte a ficar colorido quando o usuário passar o mouse (group-hover:grayscale-0).
+            */}
+            <iframe
+              src="https://maps.google.com/maps?q=Travessa%20do%20Pa%C3%A7o,%2023%20-%20Centro,%20Rio%20de%20Janeiro%20-%20RJ&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Localização do Escritório - Travessa do Paço, RJ"
+              className="absolute inset-0 w-full h-full grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-in-out"
+            />
           </div>
 
         </div>
 
         <div className="container mx-auto px-6 border-t border-cs-iceWhite/10 pt-8 text-center text-sm font-light text-cs-iceWhite/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p>&copy; {new Date().getFullYear()} Cândido Silva Advocacia. Todos os direitos reservados.</p>
-          <p>OAB/SP 000.000</p>
+
         </div>
       </footer>
     </div>

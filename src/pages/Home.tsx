@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import fundoVisual from '../assets/images/FundoXadrezJoao.jpeg'; // Ou a versão sem fundo
 import logoVisual from '../assets/images/LogoVerde.jpeg'; // Ou a versão sem fundo
 import { WhatsAppButton } from '../components/WhatsappButton';
 
@@ -12,13 +13,13 @@ export const Home = () => {
         {/* Placeholder para a Imagem de Fundo (Mármore/Escritório Moderno) */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20 mix-blend-luminosity"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=2000&auto=format&fit=crop")' }}
+          style={{ backgroundImage: `url(${fundoVisual})` }}
         />
 
         <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl">
           <img src={logoVisual} alt="CS Logo" className="w-24 h-24 rounded-full shadow-2xl mb-8 border border-cs-goldDark/30 object-cover" />
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans  font-bold text-cs-goldDark mb-6 tracking-widest uppercase">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bonanova font-bold text-cs-goldDark mb-6 tracking-widest uppercase">
             Cândido Silva<br />Advocacia
           </h1>
 
@@ -93,13 +94,8 @@ export const Home = () => {
       {/* 3. SOBRE O ESCRITÓRIO (Gera Autoridade) */}
       <section className="py-24 bg-white border-y border-cs-goldDark/10">
         <div className="container mx-auto px-6 max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative aspect-[3/4] max-w-md mx-auto lg:mx-0 w-full rounded-sm overflow-hidden shadow-2xl">
-              {/* Espaço para a foto profissional do advogado */}
-              <div className="absolute inset-0 bg-cs-darkGreen/5 flex items-center justify-center border border-cs-goldDark/20">
-                <span className="text-cs-graphite/50 font-serif">[Inserir Foto Profissional do Advogado]</span>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-16 items-center">
+
 
             <div className="flex flex-col justify-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-8">Nossa Essência</h2>
@@ -109,9 +105,6 @@ export const Home = () => {
               <p className="text-xl leading-relaxed font-light text-cs-graphite text-balance">
                 Buscamos incessantemente soluções que tragam eficácia, proteção e segurança jurídica máxima para pessoas e negócios.
               </p>
-              <div className="mt-12">
-                <img src={logoVisual} alt="Assinatura" className="h-16 opacity-80 grayscale mix-blend-multiply" />
-              </div>
             </div>
           </div>
         </div>
@@ -144,13 +137,6 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 5. DEPOIMENTOS (Placeholder Elegante) */}
-      <section className="py-24 bg-cs-iceWhite text-center px-6">
-        <h2 className="text-3xl font-bold text-cs-darkGreen mb-12">O que dizem nossos clientes</h2>
-        <div className="max-w-3xl mx-auto italic font-serif text-xl md:text-2xl text-cs-graphite/80 text-balance border-l-4 border-cs-goldDark pl-8 py-4">
-          "A estrutura está pronta para receber os depoimentos assim que as primeiras vitórias e avaliações chegarem no Google Meu Negócio."
-        </div>
-      </section>
     </div>
   );
 };
